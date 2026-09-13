@@ -1,0 +1,1163 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#eef1f8"><meta name="mobile-web-app-capable" content="yes">
+<title>Дневник 11Б</title>
+<style>
+
+:root{
+--bg:#f6f7fb;--card:rgba(255,255,255,.62);--text:#111318;--muted:#6f7480;--line:rgba(255,255,255,.72);
+--accent:#5b5ce2;--accent2:#8b5cf6;--soft:rgba(255,255,255,.46);--ok:#22a06b;--danger:#d64545;--warm:rgba(255,244,229,.66);
+--glass-shadow:0 18px 60px rgba(32,35,52,.10), inset 0 1px 0 rgba(255,255,255,.85);
+}
+body{
+background:
+radial-gradient(180px 180px at 8% 6%, rgba(120,119,255,.23), transparent 70%),
+radial-gradient(220px 220px at 92% 10%, rgba(45,212,191,.17), transparent 72%),
+radial-gradient(260px 260px at 80% 86%, rgba(168,85,247,.16), transparent 72%),
+linear-gradient(145deg,#f9fafc 0%,#eef1f8 100%);
+background-attachment:fixed;
+}
+body:before,body:after{content:"";position:fixed;z-index:-1;filter:blur(50px);border-radius:999px;pointer-events:none}
+body:before{width:170px;height:170px;left:-40px;top:35%;background:rgba(91,92,226,.10)}
+body:after{width:210px;height:210px;right:-65px;top:58%;background:rgba(139,92,246,.10)}
+.app{padding-top:18px}
+.card,.sheet,.tabs{
+background:rgba(255,255,255,.58)!important;
+backdrop-filter:blur(24px) saturate(145%);
+-webkit-backdrop-filter:blur(24px) saturate(145%);
+border-color:rgba(255,255,255,.74)!important;
+box-shadow:var(--glass-shadow);
+}
+.card{border-radius:26px}
+.hero{padding:18px}
+.btn,.quick button,.home-filter button,.day,.choice,.navBtn,.check,.pill,.tag,.stat,.streak,.field input,.field select,.field textarea,.actions button{
+box-shadow:inset 0 1px 0 rgba(255,255,255,.85);
+}
+.btn{background:rgba(255,255,255,.58);border:1px solid rgba(255,255,255,.82)}
+.primary{background:linear-gradient(135deg,#5b5ce2,#8b5cf6)!important;box-shadow:0 10px 26px rgba(91,92,226,.25),inset 0 1px 0 rgba(255,255,255,.25)!important}
+.quick button{border:1px solid rgba(255,255,255,.72)}
+.stat{background:rgba(255,255,255,.38);border-color:rgba(255,255,255,.68)}
+.streak{background:linear-gradient(135deg,rgba(238,242,255,.78),rgba(250,245,255,.70));border-color:rgba(255,255,255,.78)}
+.progress{background:rgba(255,255,255,.55)}
+.progress>div{background:linear-gradient(90deg,#5b5ce2,#8b5cf6,#35c7b5)}
+.tabs{background:rgba(255,255,255,.68)!important}
+.tab.active{background:rgba(91,92,226,.10)}
+.day.sel{background:linear-gradient(135deg,#5b5ce2,#8b5cf6)}
+.lesson.current{background:rgba(91,92,226,.10)}
+.field input,.field select,.field textarea{background:rgba(255,255,255,.57)!important;border-color:rgba(255,255,255,.82)!important}
+.modal{background:rgba(28,29,38,.24);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.sheet{border-radius:30px 30px 0 0}
+.subject{
+position:relative;overflow:hidden;min-height:112px;
+display:flex;flex-direction:column;justify-content:space-between;
+background:linear-gradient(145deg,rgba(255,255,255,.68),rgba(255,255,255,.36));
+}
+.subject:before{content:"";position:absolute;width:110px;height:110px;right:-28px;top:-38px;border-radius:50%;background:linear-gradient(135deg,rgba(139,92,246,.22),rgba(91,92,226,.04));filter:blur(3px)}
+.subject .subjectName,.subject .subjectMeta{position:relative;z-index:1}
+.subjectAdd{
+grid-column:1/-1;padding:16px;text-align:center;border:1px dashed rgba(91,92,226,.30);
+background:rgba(255,255,255,.36);border-radius:22px;color:#5558c9;font-weight:750
+}
+@media(min-width:640px){.subjectAdd{grid-column:auto}}
+
+:root{--bg:#f4f7ff;--card:#fff;--text:#182033;--muted:#737b8c;--line:#e4e8f0;--accent:#5865f2;--accent2:#7c3aed;--soft:#eef0ff;--ok:#16a34a;--danger:#dc2626;--warm:#fff4e5}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}body{padding-bottom:88px}.app{max-width:720px;margin:auto;padding:15px}
+button,input,select,textarea{font:inherit}button{border:0;cursor:pointer;color:inherit}.btn{padding:11px 13px;border-radius:13px;background:var(--soft)}.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 6px 16px rgba(88,101,242,.18)}.danger{color:var(--danger)!important}
+h1{font-size:28px;margin:0}h2{font-size:18px;margin:0}h3{font-size:15px;margin:0}.sub,.small{color:var(--muted);font-size:12px}.sub{margin-top:4px}
+header{display:flex;justify-content:space-between;align-items:center;margin:3px 0 16px}.card{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:0 4px 18px rgba(17,24,39,.04)}
+.hero{padding:16px;margin-bottom:12px}.heroRow{display:flex;justify-content:space-between;align-items:center;gap:10px}.progress{height:9px;background:#eef0f4;border-radius:999px;margin-top:13px;overflow:hidden}.progress>div{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:.2s}
+.quick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}.quick button{padding:14px;border-radius:16px;font-weight:750}.section{display:flex;justify-content:space-between;align-items:center;margin:18px 2px 9px}
+.task{padding:13px 14px;margin-bottom:8px;display:flex;gap:10px;align-items:flex-start}.check{width:25px;height:25px;border:2px solid #d1d5db;border-radius:8px;display:grid;place-items:center;flex:0 0 auto}.task.done .check{background:var(--ok);border-color:var(--ok);color:#fff}.status-badge{font-size:11px;font-weight:800;padding:4px 8px;border-radius:999px;white-space:nowrap}.status-done{background:#dcfce7;color:#15803d}.status-todo{background:#fff7ed;color:#c2410c}.status-late{background:#fee2e2;color:#b91c1c}.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}.stat{padding:12px;border-radius:15px;background:#f8f9fd;border:1px solid var(--line)}.stat b{font-size:18px;display:block}.stat span{font-size:11px;color:var(--muted)}.streak{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 14px;margin:10px 0;border-radius:15px;background:linear-gradient(135deg,#eef2ff,#f5f3ff);border:1px solid #e0e7ff}.home-filter{display:flex;gap:7px;overflow:auto;margin-bottom:8px}.home-filter button{padding:8px 11px;border-radius:10px;background:#f3f4f6;color:var(--muted);font-size:12px;white-space:nowrap}.home-filter button.active{background:var(--accent);color:white}.taskmain{flex:1;min-width:0}.title{font-weight:700}.done .title{text-decoration:line-through;color:var(--muted)}.meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:5px}.tag{background:var(--soft);padding:3px 7px;border-radius:999px;font-size:12px;color:#4b5563}.empty{padding:28px;text-align:center;color:var(--muted)}
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-top:1px solid var(--line)}.tabsin{max-width:720px;margin:auto;display:grid;grid-template-columns:repeat(5,1fr);padding:8px 7px calc(8px + env(safe-area-inset-bottom))}.tab{padding:8px 2px;border-radius:12px;color:var(--muted);font-size:11px}.tab b{display:block;font-size:20px;line-height:20px;margin-bottom:3px}.tab.active{background:var(--soft);color:var(--accent)}
+.view{display:none}.view.active{display:block}.weekNav{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:10px}.weekNav .navBtn{width:36px;height:36px;border-radius:12px;background:var(--soft);color:var(--accent);font-size:19px;font-weight:800}.weekTitle{text-align:center;min-width:0;flex:1}.weekTitle b{display:block;font-size:14px}.weekTitle span{display:block;color:var(--muted);font-size:11px;margin-top:2px}.daySwitch{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}.day{padding:9px 2px;text-align:center;border-radius:13px;color:var(--muted);font-size:11px}.day strong{display:block;color:var(--text);font-size:15px;margin-top:3px}.day.sel{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 5px 12px rgba(88,101,242,.18)}.day.sel strong{color:#fff}
+.lesson{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;padding:12px 0;border-bottom:1px solid #f0f1f3}.lesson:last-child{border-bottom:0}.lesson .num{font-size:12px;font-weight:800;color:var(--muted)}.lesson.current{background:#eef0ff;margin:0 -7px;padding-left:7px;padding-right:7px;border-radius:12px}.lessonInfo{margin-top:4px}.extra{border:1px dashed #cbd5e1;border-radius:14px;padding:11px;margin:7px 0;background:var(--warm)}.pill{font-size:11px;border-radius:999px;background:var(--soft);padding:4px 7px;display:inline-block}
+.scheduleGrid{padding:12px}.editorRow{display:grid;grid-template-columns:42px 1fr auto;gap:8px;align-items:center;padding:9px 0;border-bottom:1px solid #f0f1f3}.editorRow:last-child{border-bottom:0}.editorNum{font-size:12px;color:var(--muted);font-weight:800}.scheduleDayCard{padding:12px;margin-bottom:9px}
+.field{margin:11px 0}.field label{display:block;color:var(--muted);font-size:12px;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:13px;background:#fff;outline:none}.field textarea{min-height:88px;resize:vertical}
+.sheet{width:100%;max-width:720px;max-height:94vh;overflow:auto;background:#fff;margin:auto;border-radius:24px 24px 0 0;padding:18px}.modal{position:fixed;inset:0;display:none;align-items:flex-end;background:rgba(0,0,0,.42);z-index:50}.modal.show{display:flex}.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}.actions button{padding:13px;border-radius:13px}
+.nearest{padding:13px;border:1px solid #dfe3ff;border-radius:15px;background:var(--soft);margin:10px 0}.nearest b{font-size:15px}.chooseList{display:none;margin-top:9px}.chooseList.show{display:block}.choice{padding:12px;border:1px solid var(--line);border-radius:13px;margin-top:7px;background:#fff;text-align:left;width:100%}.choice.selected{border-color:#111827;background:var(--soft)}
+.note{padding:14px;margin-bottom:8px}.note p{white-space:pre-wrap;color:#4b5563;margin:7px 0 0;font-size:14px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.subject{padding:15px;min-height:80px}
+@media(min-width:640px){.grid{grid-template-columns:repeat(3,1fr)}body{padding-bottom:20px}.tabs{position:sticky;top:0;bottom:auto;margin-bottom:7px;border-bottom:1px solid var(--line);border-top:0}}
+
+/* v9 — unified Apple-like liquid glass system */
+html{scroll-behavior:smooth}
+body{-webkit-tap-highlight-color:transparent;overflow-x:hidden}
+*{transition:background-color .22s ease,border-color .22s ease,box-shadow .22s ease,transform .22s ease,opacity .22s ease,color .18s ease}
+.view{animation:pageIn .34s cubic-bezier(.22,.8,.25,1)}
+@keyframes pageIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+.card,.btn,.quick button,.home-filter button,.day,.choice,.navBtn,.check,.pill,.tag,.stat,.streak,.field input,.field select,.field textarea,.editorRow,.note,.subject,.subjectAdd{
+border-radius:20px!important;
+}
+.btn{min-height:42px;border:1px solid rgba(255,255,255,.78)!important;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.btn:active,.quick button:active,.tab:active,.day:active,.choice:active,.navBtn:active,.check:active{transform:scale(.965)}
+.btn:hover,.quick button:hover,.day:hover,.choice:hover,.navBtn:hover,.subjectAdd:hover{transform:translateY(-1px)}
+.primary{color:#fff!important}
+header{padding:3px 1px}
+header h1{letter-spacing:-.035em}
+.hero,.scheduleGrid,.schedule-card,.task,.note,.subject,.stat,.streak{border:1px solid rgba(255,255,255,.8)!important;box-shadow:0 15px 45px rgba(29,33,53,.075),inset 0 1px 0 rgba(255,255,255,.9)!important}
+.hero{border-radius:28px!important}
+.progress{height:10px;border-radius:999px!important;box-shadow:inset 0 1px 3px rgba(80,85,110,.08)}
+.quick{gap:11px}
+.quick button{min-height:58px;font-size:14px}
+.stat{padding:14px 12px!important}
+.streak{min-height:62px}
+.tabs{
+bottom:10px!important;left:10px!important;right:10px!important;
+border:1px solid rgba(255,255,255,.78)!important;border-radius:28px!important;
+box-shadow:0 18px 55px rgba(25,28,46,.16),inset 0 1px 0 rgba(255,255,255,.92)!important;
+overflow:hidden;
+}
+.tabsin{padding:7px 6px calc(7px + env(safe-area-inset-bottom))}
+.tab{border-radius:20px!important;min-height:55px;padding:7px 2px!important}
+.tab.active{box-shadow:inset 0 1px 0 rgba(255,255,255,.9);transform:translateY(-1px)}
+.card{overflow:hidden}
+.scheduleGrid{padding:14px!important}
+.lesson{padding:13px 5px;margin:2px 0;border-radius:17px;border-bottom:1px solid rgba(140,145,165,.12)}
+.lesson:last-child{border-bottom:0}
+.lesson.current{margin:2px 0!important;padding-left:9px!important;padding-right:9px!important}
+.daySwitch{gap:6px}
+.day{background:rgba(255,255,255,.36);border:1px solid rgba(255,255,255,.64)!important}
+.day.sel{box-shadow:0 9px 22px rgba(91,92,226,.25)!important}
+.home-filter{padding:2px 0 4px}
+.home-filter button{border:1px solid rgba(255,255,255,.7)}
+.task{padding:14px!important;margin-bottom:9px!important}
+.task .check{border-radius:10px!important}
+.status-badge,.tag,.pill{border-radius:999px!important}
+.editorRow{padding:11px 8px!important;margin:6px 0;border:1px solid rgba(255,255,255,.68)!important;background:rgba(255,255,255,.30)}
+.field input,.field select,.field textarea{box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 6px 20px rgba(32,35,52,.035)!important}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:rgba(91,92,226,.45)!important;box-shadow:0 0 0 4px rgba(91,92,226,.10),inset 0 1px 0 rgba(255,255,255,.9)!important}
+.modal.show .sheet{animation:sheetIn .36s cubic-bezier(.22,.8,.25,1)}
+@keyframes sheetIn{from{opacity:0;transform:translateY(28px) scale(.985)}to{opacity:1;transform:none}}
+.modal{padding:0 0 0}
+.sheet{border-radius:30px 30px 0 0!important;border:1px solid rgba(255,255,255,.74)!important;box-shadow:0 -12px 55px rgba(20,23,38,.15)!important}
+.actions button{border-radius:18px!important}
+.subject{min-height:126px!important;padding:16px!important}
+.subjectAdd{min-height:76px;border:1.5px dashed rgba(91,92,226,.30)!important;display:grid;place-items:center}
+.smallBtn{min-height:32px!important;padding:6px 10px!important;font-size:11px!important}
+.empty{border-radius:24px!important;background:rgba(255,255,255,.43)!important}
+@media(min-width:640px){
+ .tabs{position:sticky!important;left:auto!important;right:auto!important;bottom:auto!important;margin-bottom:12px}
+}
+
+
+/* v10 — premium liquid-glass system */
+:root{
+  --glass:rgba(255,255,255,.56);
+  --glassStrong:rgba(255,255,255,.72);
+  --glassEdge:rgba(255,255,255,.82);
+  --glassShadow:0 24px 70px rgba(25,29,48,.11), inset 0 1px 0 rgba(255,255,255,.92);
+  --ease:cubic-bezier(.22,.75,.24,1);
+}
+body{
+  min-height:100vh;
+  background:
+    radial-gradient(210px 210px at 7% 4%,rgba(120,119,255,.22),transparent 72%),
+    radial-gradient(230px 230px at 95% 15%,rgba(44,212,190,.15),transparent 74%),
+    radial-gradient(260px 260px at 82% 83%,rgba(167,90,255,.15),transparent 74%),
+    linear-gradient(150deg,#fbfbfd 0%,#eef1f8 55%,#f6f2fb 100%);
+}
+body:before,body:after{
+  content:"";position:fixed;z-index:-1;border-radius:999px;pointer-events:none;filter:blur(44px);
+  animation:orbFloat 14s ease-in-out infinite alternate;
+}
+body:before{width:190px;height:190px;left:-55px;top:27%;background:rgba(91,92,226,.10)}
+body:after{width:220px;height:220px;right:-75px;top:61%;background:rgba(139,92,246,.09);animation-delay:-5s}
+@keyframes orbFloat{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(10px,-12px,0) scale(1.08)}}
+*{box-sizing:border-box}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.app{padding-top:18px;padding-bottom:108px}
+.card,.sheet,.tabs,.scheduleGlassBtn,.dayLesson,.subject,.note,.editorRow,.stat,.streak,.schedule-card,.task,.empty,.subjectAdd{
+  background:linear-gradient(145deg,rgba(255,255,255,.68),rgba(255,255,255,.38))!important;
+  border:1px solid var(--glassEdge)!important;
+  box-shadow:var(--glassShadow)!important;
+  backdrop-filter:blur(26px) saturate(150%);
+  -webkit-backdrop-filter:blur(26px) saturate(150%);
+  border-radius:26px!important;
+}
+.card,.subject,.note,.editorRow,.task,.stat,.streak,.empty,.schedule-card{overflow:hidden}
+.hero{border-radius:30px!important}
+.btn,.quick button,.home-filter button,.day,.choice,.navBtn,.check,.pill,.tag,.field input,.field select,.field textarea{
+  border-radius:18px!important;
+}
+.btn{
+  min-height:43px;
+  background:rgba(255,255,255,.58);
+  border:1px solid rgba(255,255,255,.86)!important;
+  box-shadow:0 8px 24px rgba(40,43,60,.04),inset 0 1px 0 rgba(255,255,255,.95)!important;
+}
+.primary{
+  background:linear-gradient(135deg,#5e60e8,#8b5cf6)!important;
+  color:#fff!important;
+  box-shadow:0 12px 30px rgba(91,92,226,.24),inset 0 1px 0 rgba(255,255,255,.25)!important;
+}
+.btn:active,.quick button:active,.home-filter button:active,.day:active,.choice:active,.navBtn:active,.check:active,.scheduleGlassBtn:active,.dayLesson:active,.tab:active{
+  transform:scale(.965);
+}
+.btn:hover,.quick button:hover,.home-filter button:hover,.day:hover,.choice:hover,.navBtn:hover,.scheduleGlassBtn:hover,.subject:hover,.dayLesson:hover{
+  transform:translateY(-1px);
+}
+.heroRow{align-items:center}
+.progress{height:10px!important;border-radius:999px!important;background:rgba(255,255,255,.55)!important;overflow:hidden}
+.progress>div{border-radius:999px!important;background:linear-gradient(90deg,#5d5fe8,#925df4,#3bcab7)!important}
+.section h2,h1,h2{letter-spacing:-.035em}
+.tabs{
+  position:fixed!important;left:10px!important;right:10px!important;bottom:10px!important;
+  z-index:30;border-radius:30px!important;overflow:hidden;
+  box-shadow:0 24px 70px rgba(25,28,46,.16),inset 0 1px 0 rgba(255,255,255,.96)!important;
+}
+.tabsin{padding:6px}
+.tab{
+  border-radius:21px!important;min-height:58px!important;
+  transition:transform .22s var(--ease),background .22s ease,color .22s ease!important;
+}
+.tab b{
+  width:31px;height:31px;border-radius:12px;display:grid;place-items:center;margin:0 auto 3px;
+  background:linear-gradient(145deg,rgba(255,255,255,.72),rgba(255,255,255,.28));
+  border:1px solid rgba(255,255,255,.7);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.92),0 5px 14px rgba(35,38,57,.07);
+  font-size:15px;
+}
+.tab.active{background:rgba(93,95,232,.10)!important;color:#5254cf}
+.tab.active b{background:linear-gradient(145deg,rgba(119,121,255,.25),rgba(255,255,255,.44));color:#5557d8}
+.field input,.field select,.field textarea{
+  background:rgba(255,255,255,.60)!important;
+  border-color:rgba(255,255,255,.88)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.98),0 8px 25px rgba(30,33,50,.035)!important;
+}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none;border-color:rgba(92,94,228,.42)!important;
+  box-shadow:0 0 0 4px rgba(92,94,228,.10),inset 0 1px 0 rgba(255,255,255,.98)!important;
+}
+.day{border:1px solid rgba(255,255,255,.7)!important;background:rgba(255,255,255,.34)!important}
+.day.sel{box-shadow:0 10px 26px rgba(91,92,226,.24)!important}
+.modal{
+  background:rgba(18,20,29,.24)!important;
+  backdrop-filter:blur(13px) saturate(110%);
+  -webkit-backdrop-filter:blur(13px) saturate(110%);
+}
+.modal.show .sheet{animation:sheetPresent .42s var(--ease)}
+@keyframes sheetPresent{from{opacity:0;transform:translateY(34px) scale(.975);border-radius:34px}to{opacity:1;transform:none}}
+.sheet{border-radius:31px 31px 0 0!important}
+.modalGrab{width:38px;height:5px;border-radius:999px;background:rgba(80,83,95,.20);margin:5px auto 12px}
+.closeCircle{
+  width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.82);
+  background:rgba(255,255,255,.54);box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 8px 24px rgba(25,29,48,.08);
+  font-size:24px;line-height:1;color:#525662;
+}
+.homeScheduleButtons{display:grid;gap:10px;margin:12px 0 4px}
+.scheduleGlassBtn{
+  width:100%;min-height:76px;padding:13px 14px;display:grid;grid-template-columns:48px 1fr 22px;
+  gap:12px;align-items:center;text-align:left;position:relative;overflow:hidden;
+  transition:transform .28s var(--ease),box-shadow .28s var(--ease)!important;
+}
+.scheduleGlassBtn:before,.dayLesson:before,.subject:before{
+  content:"";position:absolute;border-radius:999px;pointer-events:none;filter:blur(3px);
+}
+.scheduleGlassBtn:before{
+  width:90px;height:90px;right:-22px;top:-38px;
+  background:linear-gradient(135deg,rgba(115,117,255,.20),rgba(68,220,194,.08));
+}
+.liquidIcon{
+  width:48px;height:48px;border-radius:17px;display:grid;place-items:center;position:relative;
+  background:linear-gradient(145deg,rgba(255,255,255,.76),rgba(127,129,255,.20));
+  border:1px solid rgba(255,255,255,.88);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,1),0 10px 25px rgba(53,56,90,.09);
+  color:#5f61df;
+}
+.liquidIcon:after{
+  content:"";position:absolute;inset:5px;border-radius:13px;
+  background:linear-gradient(135deg,rgba(255,255,255,.22),transparent 55%);pointer-events:none;
+}
+.liquidIcon svg{width:23px;height:23px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.iconTomorrow{color:#8160e8;background:linear-gradient(145deg,rgba(255,255,255,.76),rgba(170,128,255,.18))}
+.scheduleBtnText{display:flex;flex-direction:column;gap:4px;position:relative}
+.scheduleBtnText b{font-size:15px}
+.scheduleBtnText small{font-size:12px;color:var(--muted)}
+.glassChevron{font-size:29px;line-height:1;color:#9a9eaa;position:relative}
+.daySheet{padding-top:8px!important}
+.daySheetHead{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-bottom:12px}
+.eyebrow{font-size:10px;letter-spacing:.13em;font-weight:800;color:#777b88;margin-bottom:3px}
+.dayScheduleList{display:grid;gap:8px;padding-bottom:calc(18px + env(safe-area-inset-bottom))}
+.dayLesson{
+  position:relative;overflow:hidden;display:grid;grid-template-columns:34px 1fr auto;align-items:center;gap:10px;
+  padding:12px;border-radius:21px!important;border:1px solid rgba(255,255,255,.78)!important;
+  background:rgba(255,255,255,.50)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.93),0 10px 28px rgba(29,33,53,.05)!important;
+}
+.dayLesson:before{width:75px;height:75px;right:-25px;top:-25px;background:rgba(103,105,238,.11)}
+.dayLessonNum{
+  width:34px;height:34px;border-radius:12px;display:grid;place-items:center;font-size:12px;font-weight:800;
+  background:rgba(255,255,255,.68);border:1px solid rgba(255,255,255,.82);position:relative;
+}
+.dayLessonMain{position:relative;min-width:0}
+.dayLessonMain b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dayLessonTime{font-size:11px;color:var(--muted);margin-top:4px}
+.dayLessonArrow{position:relative;color:#9296a3;font-size:22px}
+.noSchedule{padding:19px;text-align:center;color:var(--muted)}
+@media(min-width:640px){.tabs{position:sticky!important;left:auto!important;right:auto!important;bottom:auto!important;margin-bottom:12px}}
+@media(prefers-reduced-motion:reduce){
+  *,body:before,body:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+
+
+.iconButton{
+ width:46px;height:46px;border-radius:16px;border:1px solid rgba(255,255,255,.86)!important;
+ background:rgba(255,255,255,.58);box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 10px 24px rgba(32,35,52,.06);
+ display:grid;place-items:center;color:#666a78;
+}
+.iconButton svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.miniIcon{
+ width:24px;height:24px;border-radius:9px;display:inline-grid;place-items:center;margin-right:5px;
+ background:rgba(255,255,255,.18);box-shadow:inset 0 1px 0 rgba(255,255,255,.22);
+}
+
+body.dark{color:#f5f6fb!important;background:radial-gradient(240px 240px at 4% 3%,rgba(91,92,226,.25),transparent 74%),radial-gradient(280px 280px at 96% 12%,rgba(32,195,174,.12),transparent 76%),linear-gradient(145deg,#05070c,#0d111b 55%,#07090f)!important}
+body.dark .card,body.dark .sheet,body.dark .tabs,body.dark .scheduleGlassBtn,body.dark .dayLesson,body.dark .subject,body.dark .note,body.dark .editorRow,body.dark .stat,body.dark .streak,body.dark .schedule-card,body.dark .task,body.dark .empty,body.dark .subjectAdd{background:linear-gradient(145deg,rgba(29,33,47,.77),rgba(13,16,26,.63))!important;border-color:rgba(255,255,255,.11)!important;box-shadow:0 24px 70px rgba(0,0,0,.40),inset 0 1px 0 rgba(255,255,255,.07)!important}
+body.dark .btn,body.dark .iconButton,body.dark .closeCircle,body.dark .day,body.dark .choice,body.dark .field input,body.dark .field select,body.dark .field textarea{background:rgba(255,255,255,.065)!important;border-color:rgba(255,255,255,.12)!important;color:#f5f6fb!important}
+body.dark .tab b{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.10)}
+body.dark .tab.active{background:rgba(112,114,250,.15)!important;color:#b8b9ff}
+body.dark .modal{background:rgba(0,0,0,.63)!important}
+.themeRow{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0}.switch{width:53px;height:31px;border:0;border-radius:999px;background:rgba(120,124,140,.25);padding:3px}.switch span{display:block;width:25px;height:25px;border-radius:50%;background:#fff;box-shadow:0 3px 10px rgba(0,0,0,.18);transition:transform .28s cubic-bezier(.22,.8,.25,1)!important}.switch.on{background:linear-gradient(135deg,#6062e8,#8b5cf6)}.switch.on span{transform:translateX(22px)}
+
+html{scroll-behavior:smooth}body{-webkit-tap-highlight-color:transparent;transition:background .35s ease,color .25s ease}
+*,*:before,*:after{transition:background-color .22s ease,border-color .22s ease,box-shadow .22s ease,transform .24s cubic-bezier(.22,.8,.25,1),opacity .22s ease,color .18s ease}
+.view{animation:viewIn .34s cubic-bezier(.22,.8,.25,1)}@keyframes viewIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+.card,.sheet,.tabs,.scheduleGlassBtn,.dayLesson,.subject,.note,.editorRow,.stat,.streak,.schedule-card,.task,.empty,.subjectAdd{border-radius:25px!important}
+.btn,.quick button,.home-filter button,.day,.choice,.navBtn,.check,.pill,.tag,.field input,.field select,.field textarea{border-radius:18px!important}
+.hero{border-radius:30px!important}.progress{border-radius:999px!important;overflow:hidden}.progress>div{border-radius:999px!important}
+.scheduleGlassBtn{width:100%;min-height:76px;padding:13px 14px;display:grid;grid-template-columns:48px 1fr 22px;gap:12px;align-items:center;text-align:left;position:relative;overflow:hidden}
+.scheduleGlassBtn:active{transform:scale(.965)}.liquidIcon{width:48px;height:48px;border-radius:17px;display:grid;place-items:center;background:linear-gradient(145deg,rgba(255,255,255,.76),rgba(127,129,255,.20));border:1px solid rgba(255,255,255,.88);box-shadow:inset 0 1px 0 #fff,0 10px 25px rgba(53,56,90,.09);color:#5f61df}.liquidIcon svg{width:23px;height:23px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.scheduleBtnText{display:flex;flex-direction:column;gap:4px}.scheduleBtnText small{font-size:12px;color:#737782}.glassChevron{font-size:29px;color:#9a9eaa}
+.dayScheduleList{display:grid;gap:8px;padding-bottom:18px}.daySheet{padding-top:8px!important}.modalGrab{width:38px;height:5px;border-radius:999px;background:rgba(80,83,95,.20);margin:5px auto 12px}.daySheetHead{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-bottom:12px}.eyebrow{font-size:10px;letter-spacing:.13em;font-weight:800;color:#777b88}.closeCircle{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.82);background:rgba(255,255,255,.54);font-size:24px;color:#555}.dayLesson{position:relative;overflow:hidden;display:grid;grid-template-columns:34px 1fr auto;align-items:center;gap:10px;padding:12px;border:1px solid rgba(255,255,255,.78)!important;background:rgba(255,255,255,.50)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.93),0 10px 28px rgba(29,33,53,.05)!important;text-align:left}.dayLesson:active{transform:scale(.985)}.dayLessonNum{width:34px;height:34px;border-radius:12px;display:grid;place-items:center;font-size:12px;font-weight:800;background:rgba(255,255,255,.68);border:1px solid rgba(255,255,255,.82)}.dayLessonMain{min-width:0}.dayLessonMain b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.dayLessonTime{font-size:11px;color:#787c87;margin-top:4px}.dayLessonArrow{color:#9296a3;font-size:22px}.noSchedule{padding:19px;text-align:center;color:#787c87}
+.iconButton{width:46px;height:46px;border-radius:16px;border:1px solid rgba(255,255,255,.86)!important;background:rgba(255,255,255,.58);display:grid;place-items:center;color:#666a78}.iconButton svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.modal.show .sheet{animation:sheetIn .42s cubic-bezier(.22,.8,.25,1)}@keyframes sheetIn{from{opacity:0;transform:translateY(28px) scale(.975)}to{opacity:1;transform:none}}
+.daySwitch{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}.day{min-width:0!important;padding:8px 3px!important}.day span{display:block;font-size:11px}.day strong{display:block;margin-top:2px;font-size:14px}
+@media(max-width:380px){.day{font-size:10px!important}.daySwitch{gap:3px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* v12 — calmer Liquid Glass */
+header>div{min-width:0}header h1{letter-spacing:-.025em}
+header .btn{flex:0 0 auto;white-space:nowrap}
+@media(max-width:500px){
+  #schedule header,#editor header{align-items:flex-start;gap:11px}
+  #schedule header .sub,#editor header .sub{max-width:235px;line-height:1.25}
+  #schedule header .btn{padding:10px 12px}
+  #editor header .btn{font-size:12px;padding:9px 10px}
+}
+.tabs{background:rgba(248,250,255,.48)!important;border:1px solid rgba(255,255,255,.46)!important;box-shadow:0 20px 60px rgba(30,34,54,.13),inset 0 1px 0 rgba(255,255,255,.70)!important}
+.tab{background:transparent!important;color:#7a7f8d!important}
+.tab b{background:rgba(255,255,255,.30)!important;border:1px solid rgba(255,255,255,.48)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.72),0 5px 14px rgba(35,38,57,.05)!important}
+.tab.active{background:rgba(91,92,226,.10)!important;color:#5558d7!important}
+.tab.active b{background:rgba(116,118,255,.16)!important;border-color:rgba(129,130,244,.28)!important}
+.day{background:rgba(255,255,255,.26)!important;border:1px solid rgba(255,255,255,.45)!important}
+.day.sel{background:linear-gradient(135deg,rgba(91,92,226,.90),rgba(139,92,246,.90))!important}
+body.dark .tabs{background:rgba(12,15,25,.68)!important;border-color:rgba(255,255,255,.10)!important;box-shadow:0 20px 60px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.07)!important}
+body.dark .tab{color:#8f95a4!important}
+body.dark .tab b{background:rgba(255,255,255,.045)!important;border-color:rgba(255,255,255,.08)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 5px 14px rgba(0,0,0,.22)!important}
+body.dark .tab.active{background:rgba(105,108,255,.10)!important;color:#aeb0ff!important}
+body.dark .tab.active b{background:rgba(110,112,255,.15)!important;border-color:rgba(126,128,255,.20)!important}
+body.dark .day{background:rgba(255,255,255,.035)!important;border-color:rgba(255,255,255,.08)!important;color:#9197a6!important}
+body.dark .day strong{color:#dfe3ef!important}
+body.dark .day.sel{background:linear-gradient(135deg,rgba(91,92,226,.92),rgba(139,92,246,.92))!important;color:#fff!important}
+body.dark .day.sel strong{color:#fff!important}
+
+/* New schedule setup */
+.setupIntro{padding:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:13px}
+.setupStep{display:flex;gap:8px;align-items:flex-start;padding:9px;border-radius:18px;background:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.40)}
+.setupStep>span{width:25px;height:25px;border-radius:9px;display:grid;place-items:center;flex:0 0 auto;background:rgba(91,92,226,.12);color:#5759d7;font-weight:800;font-size:12px}
+.setupStep b{display:block;font-size:12px}.setupStep small{display:block;margin-top:3px;font-size:10px;color:var(--muted);line-height:1.25}
+.editorSection{margin-top:14px}.sectionTitle{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin:0 2px 8px}.sectionTitle h2{font-size:17px;letter-spacing:-.015em}.miniAction{border:1px solid rgba(255,255,255,.55);background:rgba(255,255,255,.30);padding:8px 10px;border-radius:14px;font-size:11px;font-weight:750;color:#666b78}.primaryMini{background:rgba(91,92,226,.12);color:#5659d3;border-color:rgba(91,92,226,.18)}.dangerMini{color:#c44949}
+.timeSlots{display:grid;gap:6px}.timeRow{display:grid;grid-template-columns:27px 1fr 76px 10px 66px 24px;align-items:center;gap:5px;padding:8px 9px;border:1px solid rgba(255,255,255,.52);border-radius:18px;background:rgba(255,255,255,.31);box-shadow:inset 0 1px 0 rgba(255,255,255,.65)}.timeNumber{width:27px;height:27px;border-radius:9px;display:grid;place-items:center;background:rgba(91,92,226,.10);font-weight:800;font-size:11px;color:#5b5dd6}.timeLabel{font-size:12px;font-weight:700}.timeInput,.durationInput{width:100%;padding:8px 7px;border:1px solid rgba(255,255,255,.58);border-radius:12px;background:rgba(255,255,255,.36);outline:none;font-size:12px}.durationInput{text-align:center}.timeDash{color:var(--muted);text-align:center}.durationUnit{font-size:10px;color:var(--muted)}
+.editorSubjects{display:flex;flex-wrap:wrap;gap:7px}.subjectChip{display:flex;align-items:center;gap:7px;padding:9px 11px;border-radius:15px;background:rgba(255,255,255,.31);border:1px solid rgba(255,255,255,.50);box-shadow:inset 0 1px 0 rgba(255,255,255,.68);font-size:12px;font-weight:700}.chipCount{font-size:10px;color:var(--muted);font-weight:600}.compactEmpty{padding:18px!important}
+.editorWeekDays{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;margin-bottom:10px}.editorDayBtn{padding:8px 3px;border-radius:16px;border:1px solid rgba(255,255,255,.50);background:rgba(255,255,255,.25);color:var(--muted);text-align:center}.editorDayBtn span{display:block;font-size:10px}.editorDayBtn b{display:block;margin-top:3px;font-size:13px;color:var(--text)}.editorDayBtn.sel{background:linear-gradient(145deg,rgba(91,92,226,.84),rgba(139,92,246,.84));color:#fff;border-color:rgba(255,255,255,.42);box-shadow:0 8px 24px rgba(91,92,226,.16)}.editorDayBtn.sel b{color:#fff}.editorDayLabel{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 2px 8px}.editorDayLabel b{display:block}.editorDayLabel span{font-size:11px;color:var(--muted);display:block;margin-top:2px}.editorDayRows{display:grid;gap:6px}.editorLessonRow{display:grid;grid-template-columns:30px 1fr minmax(150px,1.3fr) 58px;gap:7px;align-items:center;padding:8px;border:1px solid rgba(255,255,255,.52);border-radius:18px;background:rgba(255,255,255,.30);box-shadow:inset 0 1px 0 rgba(255,255,255,.65)}.editorLessonNumber{width:29px;height:29px;border-radius:10px;display:grid;place-items:center;background:rgba(91,92,226,.10);color:#5a5cd6;font-size:11px;font-weight:800}.editorLessonInfo b{font-size:12px;display:block}.slotTime{font-size:9.5px;color:var(--muted);display:block;margin-top:2px;white-space:nowrap}.editorSelect,.roomInput{width:100%;padding:9px;border:1px solid rgba(255,255,255,.58);background:rgba(255,255,255,.36);border-radius:12px;outline:none;font-size:11px}.roomInput{text-align:center}.roomInput::placeholder{color:#9a9eaa}
+@media(max-width:430px){
+  .setupIntro{grid-template-columns:1fr;gap:6px}.setupStep{padding:8px}
+  .timeRow{grid-template-columns:27px 1fr 70px 8px 58px 21px}.timeLabel{font-size:11px}.timeInput,.durationInput{font-size:11px}
+  .editorLessonRow{grid-template-columns:29px 1fr;gap:6px}.editorLessonInfo{min-width:0}.editorSelect,.roomInput{grid-column:2}.editorSelect{margin-top:1px}.roomInput{max-width:90px}
+}
+body.dark .setupStep,body.dark .timeRow,body.dark .subjectChip,body.dark .editorDayBtn,body.dark .editorLessonRow{background:rgba(255,255,255,.035);border-color:rgba(255,255,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+body.dark .timeInput,body.dark .durationInput,body.dark .editorSelect,body.dark .roomInput{background:rgba(255,255,255,.055)!important;border-color:rgba(255,255,255,.10)!important;color:#eef1f8!important}
+body.dark .miniAction{background:rgba(255,255,255,.045);border-color:rgba(255,255,255,.08);color:#c3c7d2}
+@media(max-width:380px){.editorWeekDays{gap:3px}.editorDayBtn{padding:7px 2px}}
+
+/* v13 — premium dark Liquid Glass */
+body.dark{
+  color:#f5f7ff!important;
+  background:
+    radial-gradient(520px 420px at -8% -10%,rgba(91,92,255,.18),transparent 68%),
+    radial-gradient(440px 360px at 108% 2%,rgba(40,170,190,.10),transparent 70%),
+    radial-gradient(520px 480px at 70% 105%,rgba(132,76,255,.11),transparent 72%),
+    linear-gradient(155deg,#05070c 0%,#090c13 42%,#06080d 100%)!important;
+}
+body.dark:before{
+  width:280px;height:280px;left:-110px;top:30%;
+  background:rgba(83,87,255,.12);filter:blur(95px);
+}
+body.dark:after{
+  width:320px;height:320px;right:-150px;top:55%;
+  background:rgba(72,190,190,.08);filter:blur(110px);
+}
+body.dark .app{color:#f5f7ff}
+body.dark .card,
+body.dark .sheet,
+body.dark .tabs,
+body.dark .scheduleGlassBtn,
+body.dark .dayLesson,
+body.dark .subject,
+body.dark .note,
+body.dark .editorRow,
+body.dark .stat,
+body.dark .streak,
+body.dark .schedule-card,
+body.dark .task,
+body.dark .empty,
+body.dark .subjectAdd,
+body.dark .setupIntro,
+body.dark .setupStep,
+body.dark .timeRow,
+body.dark .subjectChip,
+body.dark .editorDayBtn,
+body.dark .editorLessonRow{
+  background:
+    linear-gradient(145deg,rgba(22,27,39,.82),rgba(9,12,19,.78))!important;
+  border:1px solid rgba(255,255,255,.085)!important;
+  box-shadow:
+    0 28px 80px rgba(0,0,0,.38),
+    inset 0 1px 0 rgba(255,255,255,.065),
+    inset 0 0 0 1px rgba(255,255,255,.018)!important;
+  backdrop-filter:blur(30px) saturate(140%);
+  -webkit-backdrop-filter:blur(30px) saturate(140%);
+}
+body.dark .hero{
+  background:
+    radial-gradient(300px 180px at 92% 0%,rgba(101,105,255,.13),transparent 72%),
+    linear-gradient(145deg,rgba(22,27,40,.86),rgba(8,11,18,.78))!important;
+}
+body.dark h1,body.dark h2,body.dark h3,body.dark b,
+body.dark .title,body.dark .subjectName b{color:#f5f7ff!important}
+body.dark .sub,body.dark .small,body.dark .muted,
+body.dark .subjectMeta,body.dark .slotTime,
+body.dark .timeDash,body.dark .durationUnit,
+body.dark .editorDayLabel span{color:#8d95a8!important}
+
+body.dark .btn,
+body.dark .iconButton,
+body.dark .closeCircle,
+body.dark .navBtn,
+body.dark .day,
+body.dark .choice,
+body.dark .field input,
+body.dark .field select,
+body.dark .field textarea,
+body.dark .actions button,
+body.dark .miniAction,
+body.dark .timeInput,
+body.dark .durationInput,
+body.dark .editorSelect,
+body.dark .roomInput{
+  color:#edf1fb!important;
+  background:rgba(255,255,255,.045)!important;
+  border:1px solid rgba(255,255,255,.105)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.07),
+    0 8px 24px rgba(0,0,0,.16)!important;
+}
+body.dark .btn:hover,
+body.dark .navBtn:hover,
+body.dark .miniAction:hover{background:rgba(255,255,255,.075)!important}
+body.dark .primary{
+  background:linear-gradient(135deg,#6266ee 0%,#7959db 55%,#5b4ac2 100%)!important;
+  border-color:rgba(205,205,255,.24)!important;
+  box-shadow:
+    0 14px 34px rgba(78,70,205,.30),
+    inset 0 1px 0 rgba(255,255,255,.24)!important;
+}
+body.dark .tabs{
+  background:rgba(10,13,21,.72)!important;
+  border-color:rgba(255,255,255,.09)!important;
+  box-shadow:
+    0 24px 70px rgba(0,0,0,.50),
+    inset 0 1px 0 rgba(255,255,255,.07)!important;
+}
+body.dark .tab{color:#8e96a9!important}
+body.dark .tab b{
+  background:rgba(255,255,255,.045)!important;
+  border:1px solid rgba(255,255,255,.07)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 7px 18px rgba(0,0,0,.18)!important;
+}
+body.dark .tab.active{
+  color:#b8bbff!important;
+  background:rgba(105,108,255,.10)!important;
+}
+body.dark .tab.active b{
+  background:linear-gradient(145deg,rgba(105,108,255,.20),rgba(105,108,255,.07))!important;
+  border-color:rgba(139,141,255,.22)!important;
+  box-shadow:0 8px 24px rgba(77,78,210,.16),inset 0 1px 0 rgba(255,255,255,.12)!important;
+}
+body.dark .day{
+  color:#8991a4!important;
+  background:rgba(255,255,255,.025)!important;
+  border-color:rgba(255,255,255,.07)!important;
+}
+body.dark .day strong{color:#dfe4f1!important}
+body.dark .day.sel{
+  color:#fff!important;
+  background:linear-gradient(145deg,#6266ee,#7657dc)!important;
+  border-color:rgba(205,205,255,.24)!important;
+  box-shadow:0 10px 28px rgba(80,75,205,.28),inset 0 1px 0 rgba(255,255,255,.22)!important;
+}
+body.dark .weekNav{background:transparent}
+body.dark .weekTitle b{color:#f5f7ff!important}
+body.dark .lesson.current{
+  background:linear-gradient(145deg,rgba(99,102,241,.14),rgba(99,102,241,.035))!important;
+  border-color:rgba(125,128,255,.18)!important;
+}
+body.dark .lesson,
+body.dark .scheduleGrid{border-color:rgba(255,255,255,.065)!important}
+body.dark .progress{background:rgba(255,255,255,.08)!important}
+body.dark .progress>div{background:linear-gradient(90deg,#6a6ff4,#8660e9,#42c4b2)!important}
+body.dark .streak{
+  background:linear-gradient(145deg,rgba(42,45,63,.78),rgba(17,20,30,.72))!important;
+}
+body.dark .modal{background:rgba(1,3,8,.68)!important;backdrop-filter:blur(18px)!important}
+body.dark .sheet{
+  background:
+    radial-gradient(320px 160px at 80% 0%,rgba(102,105,255,.12),transparent 72%),
+    linear-gradient(145deg,rgba(19,23,34,.96),rgba(7,10,16,.96))!important;
+  border-color:rgba(255,255,255,.11)!important;
+  box-shadow:0 -20px 90px rgba(0,0,0,.58),inset 0 1px 0 rgba(255,255,255,.08)!important;
+}
+body.dark .subject:before{
+  background:linear-gradient(135deg,rgba(117,121,255,.20),rgba(77,190,184,.025));
+}
+body.dark .subjectSource{background:rgba(105,108,255,.10)!important;color:#b6b9ff!important;border-color:rgba(120,124,255,.16)!important}
+body.dark .defaultSource{color:#8e97aa!important;background:rgba(255,255,255,.045)!important;border-color:rgba(255,255,255,.07)!important}
+body.dark .subjectAdd{color:#afb2ff!important;border-color:rgba(116,119,255,.22)!important}
+body.dark .subjectRemove{
+  color:#8f97aa!important;background:rgba(255,255,255,.035)!important;
+  border-color:rgba(255,255,255,.075)!important;
+}
+body.dark .subjectRemove:hover{color:#ff9d9d!important;background:rgba(255,90,90,.07)!important;border-color:rgba(255,110,110,.16)!important}
+body.dark .dangerMini{color:#ff9a9a!important}
+body.dark .status-done{background:rgba(50,200,130,.11)!important;color:#76e0ae!important}
+body.dark .status-todo{background:rgba(255,255,255,.06)!important;color:#aeb5c4!important}
+body.dark .status-late{background:rgba(255,90,90,.10)!important;color:#ff9696!important}
+body.dark .tag{background:rgba(255,255,255,.045)!important;border-color:rgba(255,255,255,.065)!important;color:#aeb5c4!important}
+body.dark .check{
+  background:rgba(255,255,255,.055)!important;border-color:rgba(255,255,255,.10)!important;color:#aeb2ff!important;
+}
+body.dark .check:hover{background:rgba(105,108,255,.14)!important;border-color:rgba(125,128,255,.22)!important}
+body.dark .homeScheduleButtons .scheduleGlassBtn{
+  background:
+    radial-gradient(180px 100px at 100% 0%,rgba(95,100,255,.13),transparent 75%),
+    linear-gradient(145deg,rgba(20,25,38,.84),rgba(9,12,19,.74))!important;
+}
+body.dark .scheduleGlassBtn .miniGlassIcon{
+  background:linear-gradient(145deg,rgba(255,255,255,.13),rgba(255,255,255,.045))!important;
+  border-color:rgba(255,255,255,.12)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.13),0 8px 22px rgba(0,0,0,.22)!important;
+}
+body.dark .scheduleGlassBtn .arrow{color:#9ca3b7!important}
+body.dark .themeRow{border-color:rgba(255,255,255,.07)!important}
+body.dark .switch{background:rgba(255,255,255,.10)!important;border:1px solid rgba(255,255,255,.09)!important}
+body.dark .switch.on{background:linear-gradient(135deg,#6266ee,#7657dc)!important}
+body.dark .switch span{background:#f5f7ff!important;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+body.dark select option{background:#10141d;color:#f4f6fb}
+
+.subjectRemove{
+  align-self:flex-start;margin-top:9px;padding:7px 10px;border-radius:12px;
+  border:1px solid rgba(100,105,120,.18);background:rgba(100,105,120,.07);
+  color:#737887;font-size:10px;font-weight:750;transition:.22s ease;
+}
+.subjectRemove:hover{color:#bd4f4f;background:rgba(210,70,70,.06);border-color:rgba(210,70,70,.16)}
+.subjectSource{margin-left:6px;font-size:9px!important;vertical-align:middle}
+.defaultSource{background:rgba(120,125,140,.08)!important;color:#858a97!important;border-color:rgba(120,125,140,.12)!important}
+
+@media(max-width:500px){
+  body.dark .card,body.dark .subject,body.dark .task,body.dark .scheduleGlassBtn{box-shadow:0 18px 48px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.055)!important}
+}
+</style><link rel="manifest" href="./manifest.webmanifest">
+</head>
+<body><div class="app">
+<section id="home" class="view active">
+<header><div><h1 id="classTitle">11Б</h1><div class="sub" id="todayLabel"></div></div><button class="iconButton" onclick="openSettings()" aria-label="Настройки"><svg viewBox="0 0 24 24"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm0-6v2M12 19.5v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"/></svg></button></header>
+<div class="card hero"><div class="heroRow"><div><b id="summary">0/0 выполнено</b><div class="sub">Домашка на сегодня</div></div><button class="btn primary" onclick="openTask()">＋ Добавить ДЗ</button></div><div class="progress"><div id="progress"></div></div></div>
+<div class="homeScheduleButtons">
+  <button class="scheduleGlassBtn" onclick="openDaySchedule(0)">
+    <span class="liquidIcon iconSun">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.2v2.1M12 19.7v2.1M2.2 12h2.1M19.7 12h2.1M5.05 5.05l1.5 1.5M17.45 17.45l1.5 1.5M18.95 5.05l-1.5 1.5M6.55 17.45l-1.5 1.5"></path></svg>
+    </span>
+    <span class="scheduleBtnText"><b>Расписание сегодня</b><small id="homeTodayDate">—</small></span>
+    <span class="glassChevron">›</span>
+  </button>
+  <button class="scheduleGlassBtn" onclick="openDaySchedule(1)">
+    <span class="liquidIcon iconTomorrow">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7.1"></circle><path d="M12 8v4.2l3 1.7"></path></svg>
+    </span>
+    <span class="scheduleBtnText"><b>Расписание завтра</b><small id="homeTomorrowDate">—</small></span>
+    <span class="glassChevron">›</span>
+  </button>
+</div>
+
+<div class="quick">
+<button class="primary" onclick="openTask()"><span class="miniIcon">＋</span>Домашка</button>
+<button class="btn" onclick="openNote()"><span class="miniIcon">✎</span>Заметка</button>
+</div><div id="homeStats" class="stat-grid"></div><div id="streakBox" class="streak"></div>
+<div class="section"><h2>Расписание сегодня</h2><button class="btn" onclick="showView('schedule')">Открыть →</button></div><div id="homeSchedule"></div>
+<div class="section"><h2>Мои задания</h2><span class="small" id="homeCount"></span></div><div id="todayTasks"></div>
+</section>
+
+<section id="schedule" class="view"><header><div><h1>Расписание</h1><div class="sub">Можно полностью заполнить самому</div></div><button class="btn primary" onclick="showView('editor')">Редактировать</button></header>
+<div class="card" style="padding:10px"><div id="schedWeek"></div><div class="daySwitch" id="schedDays"></div></div><div id="scheduleView" style="margin-top:10px"></div></section>
+
+<section id="tasks" class="view"><header><div><h1>Домашка</h1><div class="sub">По датам и урокам</div></div><button class="btn primary" onclick="openTask()">＋</button></header>
+<div class="card" style="padding:10px"><div id="taskWeek"></div><div class="daySwitch" id="taskDays"></div></div><div id="allTasks" style="margin-top:10px"></div></section>
+
+<section id="subjects" class="view"><header><div><h1>Предметы</h1><div class="sub">Из расписания + твои собственные</div></div><button class="btn primary" onclick="openSubject()">＋ Предмет</button></header><div class="grid" id="subjectsGrid"></div></section>
+
+<section id="editor" class="view">
+<header>
+  <div><h1>Настройка</h1><div class="sub">Сначала время и предметы, затем расставь их по неделе</div></div>
+  <button class="btn" onclick="resetEditorHint()">Как это работает</button>
+</header>
+
+<div class="setupIntro card">
+  <div class="setupStep"><span>1</span><div><b>Время уроков</b><small>задай время один раз для всех дней</small></div></div>
+  <div class="setupStep"><span>2</span><div><b>Предметы</b><small>добавь только то, что реально есть у тебя</small></div></div>
+  <div class="setupStep"><span>3</span><div><b>Неделя</b><small>выбери день и назначь предмет каждому уроку</small></div></div>
+</div>
+
+<div class="editorSection">
+  <div class="sectionTitle"><div><h2>1. Время уроков</h2><div class="small">Номер урока задавать не нужно — он уже фиксирован.</div></div><button class="miniAction" onclick="fillDefaultTimes()">Пример</button></div>
+  <div id="timeSlots" class="timeSlots"></div>
+</div>
+
+<div class="editorSection">
+  <div class="sectionTitle"><div><h2>2. Предметы</h2><div class="small">Список используется в расписании и при добавлении ДЗ.</div></div><button class="miniAction primaryMini" onclick="openSubject()">＋ Добавить</button></div>
+  <div id="editorSubjects" class="editorSubjects"></div>
+</div>
+
+<div class="editorSection">
+  <div class="sectionTitle"><div><h2>3. Расставить по неделе</h2><div class="small">Пустая ячейка означает «урока нет».</div></div></div>
+  <div id="editorWeekDays" class="editorWeekDays"></div>
+  <div id="editorDayLabel" class="editorDayLabel"></div>
+  <div id="editorDayRows" class="editorDayRows"></div>
+</div>
+</section>
+
+<section id="notes" class="view"><header><div><h1>Заметки</h1><div class="sub">Важное отдельно от ДЗ</div></div><button class="btn primary" onclick="openNote()">＋</button></header><div id="notesList"></div></section>
+</div>
+<div class="tabs"><div class="tabsin"><button class="tab active" data-v="home"><b>⌂</b>Главная</button><button class="tab" data-v="schedule"><b>▤</b>Расписание</button><button class="tab" data-v="tasks"><b>✓</b>Домашка</button><button class="tab" data-v="subjects"><b>▦</b>Предметы</button><button class="tab" data-v="notes"><b>✎</b>Заметки</button></div></div>
+
+
+
+<div id="dayScheduleModal" class="modal dayScheduleModal" onclick="if(event.target===this)closeModal('dayScheduleModal')">
+  <div class="sheet daySheet">
+    <div class="modalGrab"></div>
+    <div class="daySheetHead">
+      <div>
+        <div class="eyebrow" id="dayScheduleEyebrow">РАСПИСАНИЕ</div>
+        <h2 id="dayScheduleTitle">Сегодня</h2>
+        <div class="sub" id="dayScheduleSub">—</div>
+      </div>
+      <button class="closeCircle" onclick="closeModal('dayScheduleModal')" aria-label="Закрыть">×</button>
+    </div>
+    <div id="dayScheduleList" class="dayScheduleList"></div>
+  </div>
+</div>
+
+<div id="subjectModal" class="modal" onclick="if(event.target===this)closeModal('subjectModal')">
+<div class="sheet">
+<h2>Новый предмет</h2>
+<div class="sub" style="margin-top:5px">Он появится в списке предметов и будет доступен при добавлении домашки.</div>
+<div class="field"><label>Название предмета</label><input id="newSubject" placeholder="Например, Информатика"></div>
+<div class="actions"><button class="btn" onclick="closeModal('subjectModal')">Отмена</button><button class="btn primary" onclick="saveSubject()">Добавить</button></div>
+</div></div>
+
+<div id="taskModal" class="modal" onclick="if(event.target===this)closeModal('taskModal')"><div class="sheet"><h2 id="taskHeading">Добавить домашку</h2>
+<div class="field"><label>1. Предмет</label><select id="taskSubject" onchange="findNearestLesson()"></select></div>
+<div id="nearestBox" class="nearest"></div>
+<button id="changeLessonBtn" class="btn" style="width:100%" onclick="toggleChoices()">Выбрать другой день / урок</button><div id="chooseList" class="chooseList"></div>
+<div class="field"><label>Что нужно сделать</label><input id="taskTitle" placeholder="Например: № 4–6, параграф 12"></div>
+<div class="field"><label>Заметка к ДЗ — необязательно</label><textarea id="taskNote" placeholder="Страницы, детали, что не забыть…"></textarea></div>
+<div class="actions"><button class="btn" onclick="closeModal('taskModal')">Отмена</button><button class="primary" onclick="saveTask()">Сохранить</button></div></div></div>
+
+<div id="lessonModal" class="modal" onclick="if(event.target===this)closeModal('lessonModal')"><div class="sheet"><h2 id="lessonHeading">Добавить урок</h2>
+<div class="field"><label>Дата</label><input id="lessonDate" type="date"></div><div class="field"><label>Номер урока</label><select id="lessonNumber"></select></div><div class="field"><label>Предмет / занятие</label><input id="lessonSubject" placeholder="Например: Комплексный анализ текста"></div><div class="field"><label>Тип</label><select id="lessonType"><option value="lesson">Урок</option><option value="extra">Внеурочка</option></select></div>
+<div class="field"><label>Время начала</label><input id="lessonTime" type="time"></div>
+<div class="field"><label>Длительность, минут</label><input id="lessonDuration" type="number" min="1" max="300" step="5" placeholder="45"></div>
+<div class="field"><label>Номер кабинета</label><input id="lessonRoom" inputmode="text" placeholder="Например: 214"></div>
+<div class="actions"><button class="btn" onclick="closeModal('lessonModal')">Отмена</button><button class="primary" onclick="saveLesson()">Сохранить</button></div></div></div>
+
+<div id="noteModal" class="modal" onclick="if(event.target===this)closeModal('noteModal')"><div class="sheet"><h2>Новая заметка</h2><div class="field"><label>Заголовок</label><input id="noteTitle" placeholder="Например: контрольная в пятницу"></div><div class="field"><label>Текст</label><textarea id="noteText"></textarea></div><div class="actions"><button class="btn" onclick="closeModal('noteModal')">Отмена</button><button class="primary" onclick="saveNote()">Сохранить</button></div></div></div>
+
+<div id="settingsModal" class="modal" onclick="if(event.target===this)closeModal('settingsModal')"><div class="sheet"><h2>Настройки</h2><div class="themeRow"><div><b>Тёмная тема</b><div class="small">Премиальный режим с тёмным стеклом</div></div><button id="themeToggle" class="switch" onclick="toggleTheme()"><span></span></button></div><div class="field"><label>Класс</label><input id="className"></div><div class="actions"><button class="btn" onclick="closeModal('settingsModal')">Отмена</button><button class="primary" onclick="saveSettings()">Сохранить</button></div></div></div>
+
+<script>
+const DAYS=['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
+const KEY='diary11b_v13';
+const emptySchedule=()=>({Понедельник:[],Вторник:[],Среда:[],Четверг:[],Пятница:[],Суббота:[],Воскресенье:[]});
+function readSaved(){
+  const keys=['diary11b_v9','diary11b_v9','diary11b_v7','diary11b_v5','diary11b_v4','diary11b_v3'];
+  for(const k of keys){
+    try{const raw=localStorage.getItem(k); if(raw){const x=JSON.parse(raw); if(x)return x;}}catch(e){}
+  }
+  return null;
+}
+let state=readSaved()||{className:'11Б',schedule:emptySchedule(),tasks:[],notes:[],customSubjects:[]};
+if(!state.schedule) state.schedule=emptySchedule();
+if(!Array.isArray(state.customSubjects)) state.customSubjects=[];
+if(!Array.isArray(state.notes)) state.notes=[];
+if(!Array.isArray(state.tasks)) state.tasks=[];
+
+const $=id=>document.getElementById(id);
+
+function normalizeState(){
+  if(!state || typeof state!=='object') state={};
+  if(!state.className) state.className='11Б';
+
+  const rawSchedule=(state.schedule&&typeof state.schedule==='object')?state.schedule:{};
+  const canonical=emptySchedule();
+  const canonicalNames=Object.keys(canonical);
+
+  Object.entries(rawSchedule).forEach(([rawDay,arr])=>{
+    if(!Array.isArray(arr))return;
+    const wanted=String(rawDay).trim().toLowerCase();
+    const day=canonicalNames.find(k=>k.toLowerCase()===wanted);
+    if(!day)return;
+    arr.filter(Boolean).forEach((x,i)=>{
+      if(typeof x==='string')x={subject:x,type:'lesson'};
+      if(!x.subject)return;
+      const obj={
+        id:x.id||('l_'+day+'_'+(x.number||i+1)+'_'+Math.random().toString(36).slice(2,7)),
+        number:Number(x.number||i+1),
+        subject:String(x.subject),
+        type:x.type||'lesson',
+        time:x.time||'',
+        duration:x.duration!==undefined&&x.duration!==''?Number(x.duration):'',
+        room:x.room||''
+      };
+      canonical[day].push(obj);
+    });
+  });
+
+  // One lesson slot = one number per weekday.
+  canonicalNames.forEach(day=>{
+    const map=new Map();
+    canonical[day].sort((a,b)=>a.number-b.number).forEach(x=>map.set(x.number,x));
+    canonical[day]=[...map.values()].sort((a,b)=>a.number-b.number);
+  });
+  state.schedule=canonical;
+
+  if(!Array.isArray(state.tasks))state.tasks=[];
+  if(!Array.isArray(state.notes))state.notes=[];
+  if(!Array.isArray(state.customSubjects))state.customSubjects=[];
+  state.customSubjects=[...new Set(state.customSubjects.filter(Boolean))];
+
+  if(!Array.isArray(state.lessonTimes))state.lessonTimes=Array.from({length:10},()=>({start:'',duration:''}));
+  state.lessonTimes=Array.from({length:10},(_,i)=>{
+    const x=state.lessonTimes[i]||{};
+    let start=x.start||'',duration=x.duration!==undefined&&x.duration!==''?Number(x.duration):'';
+    if(!start||!duration){
+      for(const arr of Object.values(state.schedule)){
+        const found=(arr||[]).find(v=>Number(v.number)===i+1);
+        if(found){
+          if(!start)start=found.time||'';
+          if(!duration)duration=found.duration||'';
+          if(start&&duration)break;
+        }
+      }
+    }
+    return {start,duration};
+  });
+
+  // First clean startup gets the user's actual 11Б weekly subjects.
+  const hasAny=Object.values(state.schedule).some(a=>(a||[]).length);
+  if(!hasAny && !state.scheduleSeeded){
+    const seed={
+      'Понедельник':['','Геометрия','Русский язык','Английский язык','История','Химия','Литература'],
+      'Вторник':['Литература','Обществознание','Физика','Химия','Биология','Английский язык'],
+      'Среда':['История','Литература','Экономика','Литература','Английский язык','Обществознание','Физика'],
+      'Четверг':['География','Химия','Русский язык','Математика','Физика','Геометрия'],
+      'Пятница':['География','Химия','Русский язык','Математика','Физика','Экономика'],
+      'Суббота':['Физика','Комплексный анализ текста','Английский язык','История','Экономика','Химия'],
+      'Воскресенье':[]
+    };
+    Object.entries(seed).forEach(([day,items])=>{
+      canonical[day]=items.map((subject,i)=>subject?{
+        id:'seed_'+day+'_'+(i+1),number:i+1,subject,type:'lesson',time:'',duration:'',room:''
+      }:null).filter(Boolean);
+    });
+    state.scheduleSeeded=true;
+  }
+}
+normalizeState();
+
+const classTitle=$('classTitle'), todayLabel=$('todayLabel'), summary=$('summary'), progress=$('progress');
+const homeStats=$('homeStats'), streakBox=$('streakBox'), todayLessons=$('homeSchedule'), homeCount=$('homeCount'), todayTasks=$('todayTasks');
+const scheduleView=$('scheduleView'), schedDays=$('schedDays'), taskDays=$('taskDays'), allTasks=$('allTasks'), subjectsGrid=$('subjectsGrid');
+const editorContent=$('editorContent'), notesList=$('notesList');
+const taskModal=$('taskModal'), taskHeading=$('taskHeading'), taskSubject=$('taskSubject'), nearestBox=$('nearestBox'), chooseList=$('chooseList'), changeLessonBtn=$('changeLessonBtn'), taskTitle=$('taskTitle'), taskNote=$('taskNote');
+const lessonModal=$('lessonModal'), lessonHeading=$('lessonHeading'), lessonDate=$('lessonDate'), lessonNumber=$('lessonNumber'), lessonSubject=$('lessonSubject'), lessonType=$('lessonType'), lessonTime=$('lessonTime'), lessonDuration=$('lessonDuration'), lessonRoom=$('lessonRoom');
+const noteModal=$('noteModal'), noteTitle=$('noteTitle'), noteText=$('noteText'), settingsModal=$('settingsModal'), className=$('className');
+let homeFilter='all';
+
+function applyTheme(){const dark=localStorage.getItem('diary11b_theme')==='dark';document.body.classList.toggle('dark',dark);const sw=document.getElementById('themeToggle');if(sw)sw.classList.toggle('on',dark);const m=document.querySelector('meta[name="theme-color"]');if(m)m.content=dark?'#0b0e16':'#eef1f8'}
+function toggleTheme(){const dark=!document.body.classList.contains('dark');localStorage.setItem('diary11b_theme',dark?'dark':'light');applyTheme()}
+applyTheme();
+
+
+// Миграция: старые уроки получают пустые поля кабинета/времени/длительности.
+Object.values(state.schedule).forEach(day=>(day||[]).forEach(x=>{
+  if(x){if(x.time===undefined)x.time='';if(x.duration===undefined)x.duration='';if(x.room===undefined)x.room='';}
+}));
+let selectedDate=todayISO(), editTaskId=null, editLessonId=null;
+
+function todayISO(){return new Date().toISOString().slice(0,10)}
+function save(){normalizeState();localStorage.setItem(KEY,JSON.stringify(state));render()}
+function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function isoDayName(date){return new Date(date+'T12:00:00').toLocaleDateString('ru-RU',{weekday:'long'}).replace(/^./,x=>x.toUpperCase())}
+function dayRu(date){return isoDayName(date)}
+function fmt(date){return new Date(date+'T12:00:00').toLocaleDateString('ru-RU',{weekday:'long',day:'numeric',month:'long'})}
+function datePlus(n){let d=new Date();d.setHours(12,0,0,0);d.setDate(d.getDate()+n);return d.toISOString().slice(0,10)}
+function scheduleFor(date){return (state.schedule[isoDayName(date)]||[]).slice().sort((a,b)=>Number(a.number)-Number(b.number))}
+function subjects(){return [...new Set([...(state.customSubjects||[]),...Object.values(state.schedule||{}).flat().map(x=>x&&x.subject).filter(Boolean)])]}
+function showView(v){
+  const target=$(v);
+  if(!target)return;
+  document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));
+  target.classList.add('active');
+  document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x.dataset.v===v));
+  try{render();}catch(e){console.error(e);}
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('.tab').forEach(x=>x.addEventListener('click',()=>showView(x.dataset.v)));
+function weekStart(date){let d=new Date(date+'T12:00:00');d.setDate(d.getDate()-((d.getDay()+6)%7));return d} function shiftWeek(delta){let d=weekStart(selectedDate);d.setDate(d.getDate()+delta*7);selectedDate=d.toISOString().slice(0,10);render()} function weekButtons(id){
+  const el=document.getElementById(id);if(!el)return;
+  const base=weekStart(selectedDate),end=new Date(base);end.setDate(base.getDate()+6);
+  const monthA=base.toLocaleDateString('ru-RU',{day:'numeric',month:'long'});
+  const monthB=end.toLocaleDateString('ru-RU',{day:'numeric',month:'long'});
+  const label=`${monthA} — ${monthB.replace(/^\d+\s/,'')||monthB}`;
+  const weekEl=document.getElementById(id.replace('Days','Week'));
+  if(weekEl)weekEl.innerHTML=`<div class="weekNav"><button class="navBtn" onclick="shiftWeek(-1)">‹</button><div class="weekTitle"><b>${label}</b><span>Неделя ${getWeekNumber(base)}</span></div><button class="navBtn" onclick="selectedDate=todayISO();render()">⌂</button><button class="navBtn" onclick="shiftWeek(1)">›</button></div>`;
+  const names=['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
+  el.innerHTML='';
+  for(let i=0;i<7;i++){
+    const d=new Date(base);d.setDate(base.getDate()+i);
+    const iso=d.toISOString().slice(0,10);
+    el.insertAdjacentHTML('beforeend',`<button class="day ${iso===selectedDate?'sel':''}" onclick="selectedDate='${iso}';render()"><span>${names[i]}</span><strong>${d.getDate()}</strong></button>`);
+  }
+}
+function getWeekNumber(d){let x=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()));let day=x.getUTCDay()||7;x.setUTCDate(x.getUTCDate()+4-day);let y=new Date(Date.UTC(x.getUTCFullYear(),0,1));return Math.ceil((((x-y)/86400000)+1)/7)}
+function lessonRows(date){
+let arr=scheduleFor(date);
+if(!arr.length)return '<div class="empty">На этот день расписание ещё не заполнено.</div>';
+return arr.map((x,i)=>x?`<div class="lesson">
+<div class="num">${i+1}</div>
+<div><b>${esc(x.subject)}</b>${x.type==='extra'?'<div><span class="pill">внеурочка</span></div>':''}
+${x.time||x.room||x.duration?`<div class="small lessonInfo">${x.time?esc(x.time):''}${x.duration?` · ${esc(x.duration)} мин`:''}${x.room?` · каб. ${esc(x.room)}`:''}</div>`:''}
+</div></div>`:'').join('')
+}
+function setHomeFilter(f){homeFilter=f;renderHome()}
+function completionStats(){const all=state.tasks.length,done=state.tasks.filter(t=>t.done).length,today=state.tasks.filter(t=>t.date===todayISO());return {done,open:all-done,today:today.length,todayDone:today.filter(t=>t.done).length}}
+function calcStreak(){let streak=0,d=new Date();d.setHours(12,0,0,0);for(let i=0;i<90;i++){const iso=d.toISOString().slice(0,10),a=state.tasks.filter(t=>t.date===iso);if(a.length&&a.every(t=>t.done)){streak++;d.setDate(d.getDate()-1)}else if(!a.length&&streak===0)d.setDate(d.getDate()-1);else break}return streak}
+function render(){
+  classTitle.textContent=state.className||'11Б';
+  todayLabel.textContent=fmt(todayISO());
+  const fns=[renderHome,renderSchedule,renderTasks,renderSubjects,renderEditor,renderNotes];
+  fns.forEach(fn=>{try{fn()}catch(e){console.error(fn.name,e)}});
+}
+function renderHome(){
+const a=state.tasks.filter(t=>t.date===todayISO()).sort((x,y)=>x.lesson-y.lesson),done=a.filter(x=>x.done).length;document.getElementById('homeTodayDate').textContent=dayDateLabel(todayISO());document.getElementById('homeTomorrowDate').textContent=dayDateLabel(datePlus(1));
+document.getElementById('homeTodayDate').textContent=dayDateLabel(todayISO());
+document.getElementById('homeTomorrowDate').textContent=dayDateLabel(datePlus(1));
+document.getElementById('summary').textContent=`${done}/${a.length} выполнено`;
+document.getElementById('progress').style.width=a.length?done/a.length*100+'%':'0%';
+const st=completionStats();
+document.getElementById('homeStats').innerHTML=`<div class="stat"><b>${st.todayDone}/${st.today}</b><span>сегодня</span></div><div class="stat"><b>${st.open}</b><span>открытых</span></div><div class="stat"><b>${st.done}</b><span>выполнено всего</span></div>`;
+const streak=calcStreak();document.getElementById('streakBox').innerHTML=`<div><b>Серия: ${streak} ${streak===1?'день':'дн.'}</b><div class="small">${streak?'Продолжай в том же темпе.':'Закрой первую домашку, чтобы начать серию.'}</div></div><span style="font-size:22px">🔥</span>`;
+document.getElementById('todayLessons').innerHTML=`<div class="card schedule-card"><div class="small" style="margin-bottom:4px">${dayRu(todayISO())}</div>${lessonRows(todayISO())}</div>`;
+let filtered=a;if(homeFilter==='todo')filtered=a.filter(t=>!t.done);if(homeFilter==='done')filtered=a.filter(t=>t.done);
+document.querySelectorAll('.home-filter button').forEach(b=>b.classList.remove('active'));const btn=document.getElementById(homeFilter==='todo'?'filterTodo':homeFilter==='done'?'filterDone':'filterAll');if(btn)btn.classList.add('active');
+document.getElementById('homeCount').textContent=a.length?`${a.length} заданий`:'';
+document.getElementById('todayTasks').innerHTML=filtered.length?filtered.map(taskHtml).join(''):`<div class="card empty">${homeFilter==='done'?'Пока ничего не выполнено.':homeFilter==='todo'?'Все задания выполнены.':'Домашки на сегодня нет.'}</div>`;
+}
+function renderSchedule(){weekButtons('schedDays');scheduleView.innerHTML=`<div class="card scheduleGrid"><div class="small" style="margin-bottom:5px">${fmt(selectedDate)}</div>${lessonRows(selectedDate)}</div>`}
+function renderTasks(){weekButtons('taskDays');let a=state.tasks.filter(t=>t.date===selectedDate).sort((x,y)=>x.lesson-y.lesson);allTasks.innerHTML=a.length?a.map(taskHtml).join(''):'<div class="card empty">На эту дату ДЗ нет.</div>'}
+function statusBadge(t){if(t.done)return '<span class="status-badge status-done">✓ Выполнено</span>';if(t.date<todayISO())return '<span class="status-badge status-late">Просрочено</span>';return '<span class="status-badge status-todo">○ Не выполнено</span>'}
+function taskHtml(t){return `<div class="card task ${t.done?'done':''}"><div class="check" onclick="toggleTask('${t.id}')">${t.done?'✓':''}</div><div class="taskmain" onclick="openTask('${t.id}')"><div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px"><div class="title">${esc(t.title)}</div>${statusBadge(t)}</div><div class="meta"><span class="tag">${esc(t.subject)}</span><span class="tag">${t.lesson} урок</span><span class="tag">${esc(t.date===todayISO()?'Сегодня':fmt(t.date))}</span></div>${t.note?`<div class="small" style="margin-top:5px">${esc(t.note)}</div>`:''}</div></div>`}
+
+function renderSubjects(){
+let arr=subjects();
+let custom=new Set(state.customSubjects||[]);
+subjectsGrid.innerHTML=(arr.map(s=>{let a=state.tasks.filter(t=>t.subject===s),open=a.filter(x=>!x.done).length;return `<div class="card subject">
+<div class="subjectName"><b>${esc(s)}</b>${custom.has(s)?'<span class="pill subjectSource">добавлен мной</span>':'<span class="pill subjectSource defaultSource">из расписания</span>'}</div>
+<div class="subjectMeta small">${open?open+' открытых':'всё выполнено'} · ${a.length} ДЗ</div>
+<button class="subjectRemove" onclick="deleteSubject('${esc(s).replace(/'/g,'&#39;')}')">Убрать из расписания</button>
+</div>`}).join('')) + `<button class="subjectAdd" onclick="openSubject()">＋ Добавить предмет</button>`;
+}
+function renderNotes(){
+  if(!state.notes.length){
+    notesList.innerHTML='<div class="card empty">Пока нет заметок.<br><span class="small">Нажми «＋» и создай первую.</span></div>';
+    return;
+  }
+  notesList.innerHTML=state.notes.slice().reverse().map(n=>`<div class="card note">
+    <div style="display:flex;justify-content:space-between;gap:8px;align-items:flex-start">
+      <b>${esc(n.title||'Без заголовка')}</b>
+      <button class="btn danger smallBtn" onclick="deleteNote('${n.id}')">Удалить</button>
+    </div>
+    <p>${esc(n.text)}</p>
+  </div>`).join('');
+}
+
+function persistOnly(){
+  normalizeState();
+  localStorage.setItem(KEY,JSON.stringify(state));
+}
+let editorDayName='Понедельник';
+
+function resetEditorHint(){
+  alert('Логика простая: 1) задаёшь время для 1–10 уроков; 2) добавляешь предметы; 3) выбираешь день и ставишь предмет в нужный номер урока. Время подставится автоматически.');
+}
+function fillDefaultTimes(){
+  const defaults=['08:30','09:25','10:20','11:20','12:15','13:10','14:10','15:05','16:00','16:55'];
+  state.lessonTimes=state.lessonTimes.map((x,i)=>({start:x.start||defaults[i],duration:x.duration||45}));
+  persistOnly();renderEditor();
+}
+function renderTimeSlots(){
+  const el=document.getElementById('timeSlots');if(!el)return;
+  el.innerHTML=state.lessonTimes.map((x,i)=>`
+    <div class="timeRow">
+      <span class="timeNumber">${i+1}</span>
+      <span class="timeLabel">${i+1} урок</span>
+      <input class="timeInput" type="time" value="${esc(x.start||'')}" onchange="setLessonTime(${i},this.value)">
+      <span class="timeDash">·</span>
+      <input class="durationInput" type="number" min="1" max="180" step="5" value="${x.duration||''}" placeholder="45" onchange="setLessonDuration(${i},this.value)">
+      <span class="durationUnit">мин</span>
+    </div>`).join('');
+}
+function setLessonTime(index,value){
+  state.lessonTimes[index].start=value;persistOnly();refreshEditorTimes();
+}
+function setLessonDuration(index,value){
+  state.lessonTimes[index].duration=value?Number(value):'';persistOnly();refreshEditorTimes();
+}
+function refreshEditorTimes(){
+  document.querySelectorAll('#editorDayRows .slotTime').forEach(el=>{
+    const n=Number(el.dataset.lesson)||1, t=state.lessonTimes[n-1]||{};
+    el.textContent=t.start?(t.start+(t.duration?' · '+t.duration+' мин':'')):'Время не задано';
+  });
+}
+function renderEditorSubjects(){
+  const el=document.getElementById('editorSubjects');if(!el)return;
+  const arr=subjects();
+  el.innerHTML=arr.length?arr.map(sub=>`<div class="subjectChip"><span>${esc(sub)}</span><span class="chipCount">${Object.values(state.schedule).flat().filter(x=>x&&x.subject===sub).length} урок.</span></div>`).join(''):'<div class="empty compactEmpty">Пока нет предметов.</div>';
+}
+function editorWeekButtons(){
+  const el=document.getElementById('editorWeekDays');if(!el)return;
+  const names=['Понедельник','Вторник','Среда','Четверг','Пятница','Суббота','Воскресенье'];
+  const short=['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
+  el.innerHTML=names.map((name,i)=>`<button class="editorDayBtn ${name===editorDayName?'sel':''}" onclick="selectEditorDay('${name}')"><span>${short[i]}</span><b>${(state.schedule[name]||[]).length}</b></button>`).join('');
+}
+function selectEditorDay(name){editorDayName=name;renderEditor();}
+function setScheduleCell(day,number,subject){
+  if(!state.schedule[day])state.schedule[day]=[];
+  const arr=state.schedule[day];
+  const idx=arr.findIndex(x=>Number(x.number)===number);
+  if(!subject){
+    if(idx>=0)arr.splice(idx,1);
+  }else{
+    const old=idx>=0?arr[idx]:null;
+    const slot=state.lessonTimes[number-1]||{};
+    const obj={
+      id:old?.id||('l_'+Date.now()+'_'+Math.random().toString(36).slice(2,7)),
+      number,subject,type:old?.type||'lesson',
+      time:slot.start||old?.time||'',
+      duration:slot.duration||old?.duration||'',
+      room:old?.room||''
+    };
+    if(idx>=0)arr[idx]=obj;else arr.push(obj);
+  }
+  arr.sort((a,b)=>Number(a.number)-Number(b.number));
+  persistOnly();
+  renderEditor();
+}
+function setScheduleRoom(day,number,room){
+  const arr=state.schedule[day]||[],x=arr.find(v=>Number(v.number)===number);
+  if(x){x.room=room.trim();persistOnly()}
+}
+function clearEditorDay(day){
+  if(!confirm('Очистить все уроки этого дня?'))return;
+  state.schedule[day]=[];persistOnly();renderEditor();
+}
+function renderEditorRows(){
+  const rows=document.getElementById('editorDayRows');if(!rows)return;
+  const arr=state.schedule[editorDayName]||[];
+  rows.innerHTML=Array.from({length:10},(_,i)=>{
+    const n=i+1,x=arr.find(v=>Number(v.number)===n),slot=state.lessonTimes[i]||{};
+    return `<div class="editorLessonRow">
+      <div class="editorLessonNumber">${n}</div>
+      <div class="editorLessonInfo">
+        <b>${n} урок</b>
+        <span class="slotTime" data-lesson="${n}">${slot.start?(slot.start+(slot.duration?' · '+slot.duration+' мин':'')):'Время не задано'}</span>
+      </div>
+      <select class="editorSelect" onchange="setScheduleCell('${editorDayName}',${n},this.value)">
+        <option value="">— нет урока —</option>
+        ${subjects().map(s=>`<option value="${esc(s)}" ${x&&x.subject===s?'selected':''}>${esc(s)}</option>`).join('')}
+      </select>
+      <input class="roomInput" placeholder="каб." value="${esc(x?.room||'')}" onchange="setScheduleRoom('${editorDayName}',${n},this.value)">
+    </div>`;
+  }).join('');
+}
+function renderEditor(){
+  document.getElementById('editorDayLabel').innerHTML=`<div><b>${editorDayName}</b><span>${(state.schedule[editorDayName]||[]).length} занятий</span></div><button class="miniAction dangerMini" onclick="clearEditorDay('${editorDayName}')">Очистить день</button>`;
+  renderTimeSlots();renderEditorSubjects();editorWeekButtons();renderEditorRows();
+}
+
+
+function taskSubjectsFill(sel){taskSubject.innerHTML=subjects().map(s=>`<option ${s===sel?'selected':''}>${esc(s)}</option>`).join('');}
+
+
+function dayDateLabel(date){
+  return new Date(date+'T12:00:00').toLocaleDateString('ru-RU',{day:'numeric',month:'long'});
+}
+function homeworkForSubject(subject, date){
+  return state.tasks.filter(t=>t.subject===subject && (t.date===date || t.date>date)).sort((a,b)=>a.date.localeCompare(b.date)||a.lesson-b.lesson);
+}
+function openDaySchedule(offset){
+  const date=datePlus(offset);
+  document.getElementById('dayScheduleTitle').textContent=offset===0?'Сегодня':'Завтра';
+  document.getElementById('dayScheduleEyebrow').textContent='РАСПИСАНИЕ · '+dayDateLabel(date).toUpperCase();
+  document.getElementById('dayScheduleSub').textContent=fmt(date);
+  const list=document.getElementById('dayScheduleList');
+  const arr=scheduleFor(date);
+  if(!arr.length){
+    list.innerHTML='<div class="dayLesson noSchedule">На этот день расписание ещё не заполнено.</div>';
+  }else{
+    list.innerHTML=arr.map((x,i)=>x?`
+      <button class="dayLesson" onclick="openSubjectHomework('${esc(x.subject).replace(/'/g,'&#39;')}','${date}')">
+        <span class="dayLessonNum">${i+1}</span>
+        <span class="dayLessonMain"><b>${esc(x.subject)}</b><span class="dayLessonTime">${x.time?esc(x.time)+(x.duration?' · '+esc(x.duration)+' мин':''):x.duration?esc(x.duration)+' мин':''}${x.room?' · каб. '+esc(x.room):''}</span></span>
+        <span class="dayLessonArrow">›</span>
+      </button>`:'').join('');
+  }
+  document.getElementById('dayScheduleModal').classList.add('show');
+}
+function openSubjectHomework(subject,date){
+  const items=homeworkForSubject(subject,date);
+  document.getElementById('dayScheduleTitle').textContent=subject;
+  document.getElementById('dayScheduleEyebrow').textContent='ДОМАШКА';
+  document.getElementById('dayScheduleSub').textContent=items.length?('Ближайшие задания'):'На ближайшие даты заданий нет';
+  const list=document.getElementById('dayScheduleList');
+  list.innerHTML=items.length?items.slice(0,12).map(t=>`
+    <button class="dayLesson" onclick="closeModal('dayScheduleModal');openTask('${t.id}')">
+      <span class="dayLessonNum">${t.done?'✓':t.lesson}</span>
+      <span class="dayLessonMain"><b>${esc(t.title)}</b><span class="dayLessonTime">${fmt(t.date)}${t.note?' · '+esc(t.note):''}</span></span>
+      <span class="dayLessonArrow">›</span>
+    </button>`).join(''):'<div class="dayLesson noSchedule">Домашка по этому предмету пока не добавлена.</div>';
+}
+
+function openSubject(){document.getElementById('newSubject').value='';document.getElementById('subjectModal').classList.add('show');setTimeout(()=>document.getElementById('newSubject').focus(),50)}
+function saveSubject(){
+let s=document.getElementById('newSubject').value.trim();
+if(!s)return;
+let exists=subjects().some(x=>x.toLowerCase()===s.toLowerCase());
+if(exists){alert('Такой предмет уже есть.');return}
+state.customSubjects.push(s);
+closeModal('subjectModal');save();
+}
+function deleteSubject(s){
+  const occurrences=Object.entries(state.schedule||{}).flatMap(([day,arr])=>(arr||[]).filter(x=>x&&x.subject===s).map(x=>({day,number:x.number})));
+  const homework=(state.tasks||[]).filter(t=>t.subject===s).length;
+  const msg=occurrences.length
+    ? `Убрать «${s}» из расписания на ${occurrences.length} ${occurrences.length===1?'урок':'урока/уроков'}?${homework?`\n\nДомашние задания по предмету останутся.`:''}`
+    : `Убрать предмет «${s}» из списка?${homework?`\n\nДомашние задания по предмету останутся.`:''}`;
+  if(!confirm(msg))return;
+  Object.keys(state.schedule||{}).forEach(day=>{
+    state.schedule[day]=(state.schedule[day]||[]).filter(x=>!x||x.subject!==s);
+  });
+  state.customSubjects=(state.customSubjects||[]).filter(x=>x!==s);
+  save();
+}
+
+function findNearestLesson(){let s=taskSubject.value;let found=[];for(let i=0;i<21;i++){let d=datePlus(i),a=scheduleFor(d);a.forEach((x,idx)=>{if(x&&x.subject===s&&x.type==='lesson')found.push({date:d,lesson:Number(x.number||idx+1),subject:s})})}if(found.length){let f=found[0];window.chosenLesson=f;nearestBox.innerHTML=`<b>Ближайший урок</b><div style="margin-top:4px">${fmt(f.date)}, <b>${f.lesson} урок</b></div>`;renderChoices(found.slice(0,12),f)}else{window.chosenLesson=null;nearestBox.innerHTML='<b>Урок не найден</b><div class="small" style="margin-top:4px">Добавь этот предмет в расписание, и он появится здесь.</div>';chooseList.innerHTML='';}}
+function renderChoices(arr,chosen){chooseList.innerHTML=arr.map(x=>`<button class="choice ${x.date===chosen.date&&x.lesson===chosen.lesson?'selected':''}" onclick="selectLesson('${x.date}',${x.lesson})"><b>${fmt(x.date)}</b><div class="small" style="margin-top:4px">${x.lesson} урок · ${esc(x.subject)}</div></button>`).join('')}
+function toggleChoices(){chooseList.classList.toggle('show');if(!chooseList.innerHTML)findNearestLesson()}
+function selectLesson(date,lesson){window.chosenLesson={date,lesson,subject:taskSubject.value};nearestBox.innerHTML=`<b>Выбрано</b><div style="margin-top:4px">${fmt(date)}, <b>${lesson} урок</b></div>`;chooseList.classList.remove('show')}
+function openTask(id=null){
+  editTaskId=id||null;window.chosenLesson=null;
+  document.getElementById('taskModal').classList.add('show');
+  changeLessonBtn.textContent='Выбрать другой день / урок';chooseList.classList.remove('show');
+  if(id){
+    let t=state.tasks.find(x=>x.id===id);
+    if(!t){closeModal('taskModal');return}
+    taskHeading.textContent='Изменить домашку';taskSubjectsFill(t.subject);taskTitle.value=t.title;taskNote.value=t.note||'';
+    window.chosenLesson={date:t.date,lesson:Number(t.lesson||1),subject:t.subject};
+    nearestBox.innerHTML=`<b>Выбрано</b><div style="margin-top:4px">${fmt(t.date)}, <b>${t.lesson} урок</b></div>`;
+  }else{
+    taskHeading.textContent='Добавить домашку';taskSubjectsFill(subjects()[0]||'');taskTitle.value='';taskNote.value='';
+    if(subjects().length)findNearestLesson();
+    else{nearestBox.innerHTML='<b>Сначала добавь предмет</b><div class="small" style="margin-top:4px">Открой раздел «Предметы» и добавь его.</div>';}
+  }
+}
+function saveTask(){
+  const subject=taskSubject.value.trim(),title=taskTitle.value.trim();
+  if(!subject){alert('Выбери предмет.');return}
+  if(!title){alert('Напиши домашнее задание.');taskTitle.focus();return}
+  const c=window.chosenLesson;
+  if(!c||!c.date){alert('Выбери день и урок.');return}
+  const x={id:editTaskId||('t_'+Date.now()+'_'+Math.random().toString(36).slice(2,7)),title,note:taskNote.value.trim(),subject,date:c.date,lesson:Number(c.lesson||1),done:false};
+  if(editTaskId){
+    const i=state.tasks.findIndex(t=>t.id===editTaskId);
+    if(i>=0){x.done=!!state.tasks[i].done;state.tasks[i]=x}else state.tasks.push(x);
+  }else state.tasks.push(x);
+  selectedDate=x.date;closeModal('taskModal');save();
+}
+function toggleTask(id){let x=state.tasks.find(t=>t.id===id);if(x){x.done=!x.done;save()}}
+
+function fillLessonNumbers(){lessonNumber.innerHTML=Array.from({length:10},(_,i)=>`<option value="${i+1}">${i+1} урок</option>`).join('')}
+function openEditLesson(id=null){
+  editLessonId=id||null;fillLessonNumbers();
+  lessonDate.value=selectedDate;lessonSubject.value='';lessonType.value='lesson';lessonTime.value='';lessonDuration.value='';lessonRoom.value='';
+  lessonHeading.textContent=id?'Изменить урок':'Добавить урок';
+  if(id){
+    for(const [dayKey,arr] of Object.entries(state.schedule)){
+      const found=(arr||[]).find(x=>x&&x.id===id);
+      if(found){
+        const d=new Date(weekStart(selectedDate));const dayNames=Object.keys(emptySchedule());const idx=dayNames.indexOf(dayKey);d.setDate(d.getDate()+idx);
+        lessonDate.value=d.toISOString().slice(0,10);
+        lessonNumber.value=Number(found.number||((arr||[]).indexOf(found)+1));
+        lessonSubject.value=found.subject||'';lessonType.value=found.type||'lesson';lessonTime.value=found.time||'';lessonDuration.value=found.duration||'';lessonRoom.value=found.room||'';
+        break;
+      }
+    }
+  }
+  lessonModal.classList.add('show');
+}
+function saveLesson(){
+  const date=lessonDate.value||selectedDate,num=Number(lessonNumber.value),sub=lessonSubject.value.trim();
+  if(!date||!num||!sub){alert('Заполни дату, номер урока и предмет.');return}
+  const day=isoDayName(date);if(!state.schedule[day])state.schedule[day]=[];
+  if(editLessonId){
+    for(const d of Object.keys(state.schedule))state.schedule[d]=(state.schedule[d]||[]).filter(x=>x&&x.id!==editLessonId);
+  }
+  state.schedule[day].push({id:editLessonId||('l_'+Date.now()+'_'+Math.random().toString(36).slice(2,7)),number:num,subject:sub,type:lessonType.value||'lesson',time:lessonTime.value||'',duration:lessonDuration.value?Number(lessonDuration.value):'',room:lessonRoom.value.trim()});
+  state.schedule[day].sort((a,b)=>a.number-b.number);
+  state.customSubjects=(state.customSubjects||[]).filter(s=>s!==sub);
+  selectedDate=date;closeModal('lessonModal');save();
+}
+function deleteLesson(id){
+  if(!id)return;
+  if(!confirm('Удалить этот урок из расписания?'))return;
+  for(const d of Object.keys(state.schedule))state.schedule[d]=(state.schedule[d]||[]).filter(x=>x&&x.id!==id);
+  closeModal('lessonModal');save();
+}
+function openNote(){noteTitle.value='';noteText.value='';noteModal.classList.add('show')}
+function saveNote(){let t=noteText.value.trim();if(!t)return;state.notes.push({id:crypto.randomUUID(),title:noteTitle.value.trim(),text:t});closeModal('noteModal');save()}
+function deleteNote(id){state.notes=state.notes.filter(x=>x.id!==id);save()}
+function openSettings(){applyTheme();className.value=state.className;settingsModal.classList.add('show')}
+function saveSettings(){state.className=className.value.trim()||'11Б';closeModal('settingsModal');save()}
+function closeModal(id){document.getElementById(id).classList.remove('show')}
+render();
+if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js').catch(()=>{});}
+</script></body></html>

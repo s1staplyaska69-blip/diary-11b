@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="ru">
 <head>
+ 
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#eef1f8"><meta name="mobile-web-app-capable" content="yes">
 <title>Дневник 11Б</title>
@@ -1160,4 +1161,12 @@ function saveSettings(){state.className=className.value.trim()||'11Б';closeModa
 function closeModal(id){document.getElementById(id).classList.remove('show')}
 render();
 if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js').catch(()=>{});}
-</script></body></html>
+</script></script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./sw.js");
+}
+</script>
+
+</body></html></body></html>
